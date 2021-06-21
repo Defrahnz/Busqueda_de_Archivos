@@ -6,6 +6,7 @@
 package frames;
 
 import static java.lang.System.exit;
+import static java.lang.reflect.Array.set;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+       setLocationRelativeTo(null);
     }
 
     /**
@@ -50,6 +52,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton_busqueda1Documento.setText("Busqueda de un documento");
+        jButton_busqueda1Documento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_busqueda1DocumentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_principalLayout = new javax.swing.GroupLayout(jPanel_principal);
         jPanel_principal.setLayout(jPanel_principalLayout);
@@ -103,6 +110,13 @@ public class Menu extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton_salirActionPerformed
+
+    private void jButton_busqueda1DocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_busqueda1DocumentoActionPerformed
+        // TODO add your handling code here:
+        Busqueda1 ventana=new Busqueda1();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton_busqueda1DocumentoActionPerformed
 
     /**
      * @param args the command line arguments
