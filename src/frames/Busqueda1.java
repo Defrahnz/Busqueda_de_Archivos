@@ -62,6 +62,17 @@ public class Busqueda1 extends javax.swing.JFrame {
         jLabel1.setText("Seleccione el directorio de destino:");
 
         jButton_directorio2.setText("Seleccione el Directorio de busqueda");
+        jButton_directorio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_directorio2ActionPerformed(evt);
+            }
+        });
+
+        jTextField_dirOrigen1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_dirOrigen1ActionPerformed(evt);
+            }
+        });
 
         jButton_buscar.setText("Buscar");
 
@@ -155,11 +166,16 @@ public class Busqueda1 extends javax.swing.JFrame {
         JFileChooser direccion=new JFileChooser();
         direccion.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int res= direccion.showOpenDialog(this);
+        
         //////////////////////////////////////////////////////
         File arch=direccion.getSelectedFile();
+        File ruta=new File("");
+        String rut=ruta.getAbsolutePath();
+        this.jTextField_dirOrigen1.setText(rut);
         if(arch==null || (arch.getName().equals(""))){
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de archivo válido", "Nombre del archivo inválido", JOptionPane.ERROR_MESSAGE);
         } 
+
         
     }//GEN-LAST:event_jButton_directorioActionPerformed
 
@@ -169,6 +185,27 @@ public class Busqueda1 extends javax.swing.JFrame {
         vent.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton_volverActionPerformed
+
+    private void jTextField_dirOrigen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_dirOrigen1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_dirOrigen1ActionPerformed
+
+    private void jButton_directorio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_directorio2ActionPerformed
+        // TODO add your handling code here:
+                JFileChooser direccion=new JFileChooser();
+        direccion.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int res= direccion.showOpenDialog(this);
+        
+        //////////////////////////////////////////////////////
+        File arch=direccion.getSelectedFile();
+         File ruta=new File("");
+        String rut=ruta.getAbsolutePath();
+        this.jTextField_dirDestino.setText(rut);
+        if(arch==null || (arch.getName().equals(""))){
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de archivo válido", "Nombre del archivo inválido", JOptionPane.ERROR_MESSAGE);
+        } 
+      
+    }//GEN-LAST:event_jButton_directorio2ActionPerformed
 
     /**
      * @param args the command line arguments
