@@ -43,6 +43,11 @@ public class Menu extends javax.swing.JFrame {
         jPanel_principal.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(0, 255, 204), new java.awt.Color(255, 153, 153)), "Menú Principal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 13))); // NOI18N
 
         jButton_busquedavariosDocumentos.setText("Busqueda de Varios Documentos");
+        jButton_busquedavariosDocumentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_busquedavariosDocumentosActionPerformed(evt);
+            }
+        });
 
         jButton_salir.setText("Salir");
         jButton_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +108,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salirActionPerformed
         // TODO add your handling code here:
-       int i= JOptionPane.showConfirmDialog(this, "¿De verdad desea salir?","Sellecione una opción",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+       int i= JOptionPane.showConfirmDialog(this, "¿De verdad desea salir?","Seleccione una opción",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
         if(i==0){
             JOptionPane.showMessageDialog(this, "Hasta luego! Gracias por utilizar-me");
             System.exit(0);
@@ -117,6 +122,13 @@ public class Menu extends javax.swing.JFrame {
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton_busqueda1DocumentoActionPerformed
+
+    private void jButton_busquedavariosDocumentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_busquedavariosDocumentosActionPerformed
+        // TODO add your handling code here:
+        Busqueda2 ventana=new Busqueda2();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton_busquedavariosDocumentosActionPerformed
 
     /**
      * @param args the command line arguments
