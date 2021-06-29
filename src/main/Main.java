@@ -5,12 +5,17 @@
  */
 package main;
 
+import frames.Menu;
+
 /**
  *
  * @author nihil
  */
 public class Main {
+    public Main(){
+        new Menu().setVisible(true);
+    }
     public static void main(String[] args) {
-        
+        new Main();
     }
 }
