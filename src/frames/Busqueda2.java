@@ -5,6 +5,10 @@
  */
 package frames;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CIASA-MX
@@ -37,11 +41,12 @@ public class Busqueda2 extends javax.swing.JFrame {
         jTextArea_texto = new javax.swing.JTextArea();
         jRadioButton_xarchivo = new javax.swing.JRadioButton();
         jTextField_archivo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButton_xarchivo = new javax.swing.JButton();
         jButton_volver = new javax.swing.JButton();
         jTextField_dest = new javax.swing.JTextField();
         jButton_dest = new javax.swing.JButton();
         jButton_buscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -50,7 +55,13 @@ public class Busqueda2 extends javax.swing.JFrame {
         jPanel_principal.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 255, 204), null), "Búsqueda Múltiple", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 0, 18))); // NOI18N
 
         buttonGroup1.add(jRadioButton_xtexto);
+        jRadioButton_xtexto.setSelected(true);
         jRadioButton_xtexto.setText("Busqueda Por Texto:");
+        jRadioButton_xtexto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_xtextoActionPerformed(evt);
+            }
+        });
 
         jTextArea_texto.setColumns(20);
         jTextArea_texto.setRows(5);
@@ -58,8 +69,18 @@ public class Busqueda2 extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton_xarchivo);
         jRadioButton_xarchivo.setText("Busqueda por Archivo");
+        jRadioButton_xarchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_xarchivoActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Seleccione el archivo");
+        jButton_xarchivo.setText("Seleccione el archivo");
+        jButton_xarchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_xarchivoActionPerformed(evt);
+            }
+        });
 
         jButton_volver.setText("Volver");
         jButton_volver.addActionListener(new java.awt.event.ActionListener() {
@@ -69,8 +90,15 @@ public class Busqueda2 extends javax.swing.JFrame {
         });
 
         jButton_dest.setText("Seleccione el Archivo donde se enviará");
+        jButton_dest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_destActionPerformed(evt);
+            }
+        });
 
         jButton_buscar.setText("Buscar");
+
+        jLabel1.setText("Direccion de Destino:");
 
         javax.swing.GroupLayout jPanel_principalLayout = new javax.swing.GroupLayout(jPanel_principal);
         jPanel_principal.setLayout(jPanel_principalLayout);
@@ -86,7 +114,10 @@ public class Busqueda2 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButton_xtexto)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel_principalLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel1))))
                     .addGroup(jPanel_principalLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jTextField_dest, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -94,17 +125,13 @@ public class Busqueda2 extends javax.swing.JFrame {
                         .addComponent(jButton_dest, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton_xarchivo)
                     .addGroup(jPanel_principalLayout.createSequentialGroup()
-                        .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton_xarchivo)
-                            .addGroup(jPanel_principalLayout.createSequentialGroup()
-                                .addComponent(jTextField_archivo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(75, 75, 75))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_principalLayout.createSequentialGroup()
-                        .addComponent(jButton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                        .addComponent(jTextField_archivo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_xarchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
         jPanel_principalLayout.setVerticalGroup(
             jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,20 +142,22 @@ public class Busqueda2 extends javax.swing.JFrame {
                     .addGroup(jPanel_principalLayout.createSequentialGroup()
                         .addComponent(jButton_volver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton_xtexto)
-                            .addComponent(jRadioButton_xarchivo))
+                        .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton_xarchivo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton_xtexto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_principalLayout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField_dest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel_principalLayout.createSequentialGroup()
-                                .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField_archivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1))
-                                .addGap(55, 55, 55)
+                                .addGroup(jPanel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton_xarchivo)
+                                    .addComponent(jTextField_archivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
                                 .addComponent(jButton_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
@@ -153,6 +182,56 @@ public class Busqueda2 extends javax.swing.JFrame {
         mn.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton_volverActionPerformed
+
+    private void jRadioButton_xtextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_xtextoActionPerformed
+        // TODO add your handling code here:}
+        if(jRadioButton_xtexto.isSelected()){
+          this.jTextField_archivo.setEditable(false);
+          this.jTextArea_texto.setEditable(true);
+        }
+        
+    }//GEN-LAST:event_jRadioButton_xtextoActionPerformed
+
+    private void jButton_xarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_xarchivoActionPerformed
+        // TODO add your handling code here:
+         JFileChooser direccion=new JFileChooser();
+        direccion.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int res= direccion.showOpenDialog(this);
+        
+        //////////////////////////////////////////////////////
+        File arch=direccion.getSelectedFile();
+         File ruta=new File("");
+        String rut=ruta.getAbsolutePath();
+        this.jTextField_archivo.setText(rut);
+        if(arch==null || (arch.getName().equals(""))){
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de archivo válido", "Nombre del archivo inválido", JOptionPane.ERROR_MESSAGE);
+        }
+                    
+    }//GEN-LAST:event_jButton_xarchivoActionPerformed
+
+    private void jButton_destActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_destActionPerformed
+        // TODO add your handling code here:
+         JFileChooser direccion=new JFileChooser();
+        direccion.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int res= direccion.showOpenDialog(this);
+        
+        //////////////////////////////////////////////////////
+        File arch=direccion.getSelectedFile();
+         File ruta=new File("");
+        String rut=ruta.getAbsolutePath();
+        this.jTextField_dest.setText(rut);
+        if(arch==null || (arch.getName().equals(""))){
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre de archivo válido", "Nombre del archivo inválido", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton_destActionPerformed
+
+    private void jRadioButton_xarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_xarchivoActionPerformed
+        // TODO add your handling code here:
+          if(jRadioButton_xarchivo.isSelected()){
+          this.jTextField_archivo.setEditable(true);
+          this.jTextArea_texto.setEditable(false);
+        }
+    }//GEN-LAST:event_jRadioButton_xarchivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,10 +270,11 @@ public class Busqueda2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_buscar;
     private javax.swing.JButton jButton_dest;
     private javax.swing.JButton jButton_volver;
+    private javax.swing.JButton jButton_xarchivo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel_principal;
     private javax.swing.JRadioButton jRadioButton_xarchivo;
     private javax.swing.JRadioButton jRadioButton_xtexto;
